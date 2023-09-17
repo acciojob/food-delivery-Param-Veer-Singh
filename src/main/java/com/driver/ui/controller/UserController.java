@@ -32,14 +32,22 @@ public class UserController {
 	@GetMapping(path = "/{id}")
 	public UserResponse getUser(@PathVariable String id) throws Exception{
 
-		UserDto userDto = userService.getUser(id);
-		UserResponse userResponse = new UserResponse();
-		userResponse.setUserId(userDto.getUserId());
-		userResponse.setEmail(userDto.getEmail());
-		userResponse.setFirstName(userDto.getFirstName());
-		userResponse.setLastName(userDto.getLastName());
+		try{
 
-		return userResponse;
+			UserDto userDto = userService.getUser(id);
+			UserResponse userResponse = new UserResponse();
+			userResponse.setUserId(userDto.getUserId());
+			userResponse.setEmail(userDto.getEmail());
+			userResponse.setFirstName(userDto.getFirstName());
+			userResponse.setLastName(userDto.getLastName());
+
+			return userResponse;
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+
+		return null;
 
 	}
 
