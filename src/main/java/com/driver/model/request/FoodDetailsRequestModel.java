@@ -29,4 +29,5 @@ public class FoodDetailsRequestModel {
 		this.foodPrice = foodPrice;
 	}
 
+
 }

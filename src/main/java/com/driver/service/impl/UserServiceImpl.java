@@ -61,6 +61,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto updateUser(String userId, UserDto user) throws Exception {
         UserEntity userEntity = userRepository.findByUserId(userId);
+        if(userEntity == null)throw new Exception("User not present");
         userEntity.setEmail(user.getEmail());
         userEntity.setFirstName(user.getFirstName());
         userEntity.setLastName(user.getLastName());
