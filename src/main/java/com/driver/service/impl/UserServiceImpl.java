@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUser(String email) throws Exception {
         UserEntity userEntity = userRepository.findByEmail(email);
-        if(userEntity == null)throw new Exception("User not present");
+
         UserDto userDto = new UserDto();
         userDto.setEmail(userEntity.getEmail());
         userDto.setFirstName(userEntity.getFirstName());
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserByUserId(String userId) throws Exception {
         UserEntity userEntity = userRepository.findByUserId(userId);
-        if(userEntity == null)throw new Exception("User not present");
+
         UserDto userDto = new UserDto();
         userDto.setEmail(userEntity.getEmail());
         userDto.setFirstName(userEntity.getFirstName());
@@ -61,8 +61,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto updateUser(String userId, UserDto user) throws Exception {
         UserEntity userEntity = userRepository.findByUserId(userId);
-        if(userEntity == null)throw new Exception("User not present");
-
         userEntity.setEmail(user.getEmail());
         userEntity.setFirstName(user.getFirstName());
         userEntity.setLastName(user.getLastName());
@@ -75,7 +73,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(String userId) throws Exception {
         UserEntity userEntity = userRepository.findByUserId(userId);
-        if(userEntity == null) throw new Exception("User not present");
         userRepository.delete(userEntity);
     }
 

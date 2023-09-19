@@ -1,6 +1,7 @@
 package com.driver.ui.controller;
 
 import com.driver.model.response.UserResponse;
+import com.driver.service.UserService;
 import com.driver.shared.dto.UserDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.driver.service.UserService;
 
 @RestController
 public class AuthenticationController {

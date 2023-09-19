@@ -27,14 +27,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	@Autowired
-	private UserServiceImpl userService;
+	private UserService userService;
 
 	@GetMapping(path = "/{id}")
 	public UserResponse getUser(@PathVariable String id) throws Exception{
 
 		try{
 
-			UserDto userDto = userService.getUser(id);
+			UserDto userDto = userService.getUserByUserId(id);
 			UserResponse userResponse = new UserResponse();
 			userResponse.setUserId(userDto.getUserId());
 			userResponse.setEmail(userDto.getEmail());
